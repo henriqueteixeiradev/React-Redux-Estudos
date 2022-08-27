@@ -2,13 +2,14 @@ import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addTasks, useTasks, toDone, removeTask } from "./redux/sliceTasks";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 function App() {
   const tasks = useSelector(useTasks);
   const [newTask, setNewTask] = useState<string>("");
   const dispatch = useDispatch();
-  const Press = useRef(null);
+
+  console.log(tasks);
 
   function handleNewTask() {
     if (newTask === "") return null;
@@ -64,6 +65,7 @@ function App() {
             type="text"
             onChange={({ target }) => setNewTask(target.value)}
             required
+            value={newTask}
             onKeyPress={(e) => handleKeyPress(e)}
           />
           <button onClick={handleNewTask}>Criar</button>

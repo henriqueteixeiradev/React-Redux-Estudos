@@ -15,12 +15,12 @@ const sliceTasks = createSlice({
       return [...state, { name: payload, done: false }];
     },
     toDone(state, { payload }: PayloadAction<string>) {
-      return state.map((item) =>
-        item.name === payload ? { ...item, done: !item.done } : item
+      return state.map((task) =>
+        task.name === payload ? { ...task, done: !task.done } : task
       );
     },
     removeTask(state, { payload }: PayloadAction<string>) {
-      return state.filter((item) => item.name !== payload);
+      return state.filter((task) => task.name !== payload);
     },
   },
 });
