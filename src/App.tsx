@@ -9,8 +9,6 @@ function App() {
   const [newTask, setNewTask] = useState<string>("");
   const dispatch = useDispatch();
 
-  console.log(tasks);
-
   function handleNewTask() {
     if (newTask === "") return null;
     dispatch(addTasks(newTask));
@@ -41,7 +39,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Redux</h1>
+      <h1>ToDo</h1>
       <div>
         <ul className="card">
           {tasks.map((item, i) => (
